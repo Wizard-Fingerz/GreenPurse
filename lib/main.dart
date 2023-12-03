@@ -9,7 +9,15 @@ import 'package:provider/provider.dart';
 import 'package:greenpurse/auth_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        // Add other providers if needed
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +36,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'DM Sans',
         colorScheme:
             ColorScheme.fromSwatch(primarySwatch: AppColors.customPrimaryColor)
-                .copyWith(background: AppColors.green),
+                .copyWith(background: AppColors.white),
       ),
       home: const SplashScreen(),
       // Other MaterialApp configurations
@@ -127,7 +135,11 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2,
+            ),
             Image.asset(
               'assets/green_purse_logo.png', // Replace with your image path
               width: 94.5,
@@ -143,7 +155,8 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             ),
             const SizedBox(
-                height: 80), // Add some spacing between text and progress bar
+                height: 20), // Add some spacing between text and progress bar
+
             Container(
               width: 200, // Set your desired width for the progress bar
               height: 15, // Set your desired height for the progress bar
@@ -178,11 +191,12 @@ class _SplashScreenState extends State<SplashScreen>
                 );
               },
             ),
-          
-          Image.asset("assets/splashscreenbg.png"),
-          
           ],
         ),
+      ),
+      bottomNavigationBar: Image.asset(
+        "assets/splashscreenbg.png",
+        height: MediaQuery.of(context).size.height * 0.30,
       ),
     );
   }
