@@ -20,6 +20,6 @@ class AppColors {
   );
 
   static Color green = const Color(0xFF23AA49);
-  static Color white = Color.fromARGB(255, 204, 228, 211);
+  static Color white = Color.fromARGB(255, 240, 243, 241);
   // Add more colors as needed
 }

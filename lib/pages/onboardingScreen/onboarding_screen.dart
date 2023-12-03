@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenpurse/pages/authenticationScreen/sign_in.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key});
@@ -47,7 +48,14 @@ class OnboardingScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10,),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SignInScreen(),
+                ),
+              );
+                },
                 child: const Text("Shop now",
                     style: TextStyle(
                       fontSize: 16,
