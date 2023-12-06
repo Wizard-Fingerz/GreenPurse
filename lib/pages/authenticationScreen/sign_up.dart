@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenpurse/pages/authenticationScreen/sign_in.dart';
+import 'package:greenpurse/pages/authenticationScreen/verify.dart';
 import 'package:greenpurse/token_manager.dart';
 import 'package:greenpurse/utils/colors.dart';
 import 'package:local_auth/local_auth.dart';
@@ -69,7 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 height: 80,
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const Text("Create New Account",
                   style: TextStyle(
@@ -92,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     TextFormField(
                       controller: _phoneNumberEmailController,
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: 'Username',
                         border: OutlineInputBorder(
@@ -244,7 +245,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => VerifyOTPScreen(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.green,
                           minimumSize: const Size(500, 60),
