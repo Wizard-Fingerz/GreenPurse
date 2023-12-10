@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greenpurse/pages/authenticationScreen/sign_up.dart';
+import 'package:greenpurse/pages/homeScreens/home_screen.dart';
 import 'package:greenpurse/token_manager.dart';
 import 'package:greenpurse/utils/colors.dart';
 import 'package:local_auth/local_auth.dart';
@@ -163,7 +164,14 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.green,
                           minimumSize: const Size(500, 60),
