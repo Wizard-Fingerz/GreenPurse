@@ -21,8 +21,9 @@ class AppColors {
 
   static Color green = const Color(0xFF23AA49);
   static Color white = const Color.fromARGB(255, 240, 243, 241);
-  static Color whitish = Color.fromARGB(255, 221, 225, 230);
+  static Color whitish = const Color.fromARGB(255, 221, 225, 230);
   static Color grey = const Color(0xFF979899);
+  static Color greyish = const Color(0xFF9A9898);
   static Color red = const Color(0xFFFF324B);
   // Add more colors as needed
 }

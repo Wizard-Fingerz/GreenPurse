@@ -42,6 +42,10 @@ dependencies:
   pin_code_fields: ^8.0.1
   carousel_slider: ^4.2.1
   cached_network_image: ^3.3.0
+  googleapis: any
+  googleapis_auth: any
+  dash_chat_2: any
+  chat_gpt_sdk: ^2.2.8
 
 dev_dependencies:
   flutter_test:

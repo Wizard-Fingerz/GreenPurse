@@ -6,6 +6,7 @@ class Cart {
   static List<ProductDetails> items = [];
 }
 
+// ignore: must_be_immutable
 class ProductDetails extends StatefulWidget {
   int quantity;
   final String imageUrl;

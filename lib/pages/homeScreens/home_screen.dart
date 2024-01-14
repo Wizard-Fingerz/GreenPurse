@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greenpurse/pages/homeScreens/cartPage.dart';
-import 'package:greenpurse/pages/homeScreens/favorite.dart';
+import 'package:greenpurse/pages/homeScreens/green_bot.dart';
 import 'package:greenpurse/pages/homeScreens/home_page.dart';
 import 'package:greenpurse/pages/homeScreens/market_page.dart';
-
 import 'package:greenpurse/pages/homeScreens/profile.dart';
+import 'package:greenpurse/pages/homeScreens/wallet/wallet_home.dart';
 import 'package:greenpurse/utils/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,8 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pageContents = [
     HomeContent(),
     MarketPage(),
-    FavoritesPage(),
-    CartPage(),
+    const ChatMessages(),
+    WalletPage(),
     ProfilePage(),
   ];
 
@@ -45,18 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.shop),
             label: 'Market',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: Icon(Icons.chat_bubble),
+            label: 'GreenBot',
           ),
-         
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
+            icon: Icon(Icons.wallet),
+            label: 'Wallet',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
@@ -64,8 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   elevation: 2.0, // Adjust the elevation as needed
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius:
+      //         BorderRadius.circular(30.0), // Adjust the border radius as needed
+      //   ),
+      //   child: Image.asset(
+      //         'assets/green_purse_logo.png',
+      //         height: 50,
+      //       ),
+      // ),
     );
   }
 }
-
-

@@ -55,7 +55,6 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   double _progressValue = 0.0;
   late AnimationController _controller;
-  late Animation<double> _animation;
   int _loadingDotCount = 1;
   String _loadingText = 'Loading';
   bool isLoggedIn = false; // Move the initialization here
@@ -105,7 +104,6 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(seconds: 2),
       vsync: this,
     );
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
     _controller.repeat(reverse: true);
 
     // Timer to cycle loading text

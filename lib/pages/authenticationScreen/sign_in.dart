@@ -174,7 +174,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.green,
-                          minimumSize: const Size(500, 60),
+                          minimumSize: const Size(300, 50),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
