@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greenpurse/pages/homeScreens/wallet/transact.dart';
 import 'package:greenpurse/utils/colors.dart';
 
 class WalletPage extends StatelessWidget {
@@ -44,178 +45,190 @@ class WalletPage extends StatelessWidget {
               ),
             )
           ]),
-      body: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(10),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.25,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/card_background.png"),
-                  fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.25,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("assets/card_background.png"),
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 55),
-                  Center(
-                    child: Text(
-                      "**** **** **** 2345",
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 55),
+                    Center(
+                      child: Text(
+                        "**** **** **** 2345",
+                        style: TextStyle(
+                          fontSize: 35,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text("Amelia Barlow",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.white,
-                        )),
-                  ),
-                  ListTile(
-                    leading: Text("NGN70,000,000",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.white,
-                        )),
-                    trailing: Column(
-                      children: [
-                        Text("Expiry Date",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.white,
-                            )),
-                        Text("02/30",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.white,
-                            )),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                walletButton(
-                    "Transfer",
-                    Icon(
-                      Icons.send,
-                      color: AppColors.whitish,
-                    ),
-                    () {}),
-                walletButton(
-                    "Deposit",
-                    Icon(
-                      Icons.upload,
-                      color: AppColors.whitish,
-                    ),
-                    () {}),
-                walletButton(
-                    "Withdraw",
-                    Icon(
-                      Icons.download,
-                      color: AppColors.whitish,
-                    ),
-                    () {}),
-                walletButton(
-                    "Invest",
-                    Icon(
-                      Icons.timeline,
-                      color: AppColors.whitish,
-                    ),
-                    () {})
-              ],
-            ),
-            const SizedBox(height: 10),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(width: 0.5, color: AppColors.grey),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: const Icon(Icons.lock),
-                    title: const Text("Freeze card",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        )),
-                    subtitle: Text("Tap again to unfreeze",
-                        style: TextStyle(
-                            fontSize: 11,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text("Amelia Barlow",
+                          style: TextStyle(
+                            fontSize: 12,
                             fontWeight: FontWeight.w500,
-                            color: AppColors.grey)),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.settings),
-                    title: const Text("Settings",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        )),
-                    subtitle: Text("View address, terminate card and more",
-                        style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.grey)),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: DefaultTabController(
-                length: 2,
-                child: Column(
-                  children: [
-                    TabBar(
-                      tabs: [
-                        Tab(text: 'Recent Transactions'),
-                        Tab(text: 'Quick Links'),
-                      ],
+                            color: AppColors.white,
+                          )),
                     ),
-                    Expanded(
-                      child: TabBarView(
+                    ListTile(
+                      leading: Text("NGN70,000,000",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.white,
+                          )),
+                      trailing: Column(
                         children: [
-                          // Tab 1: Recent Transactions
-                          Container(
-                            child: Center(
-                              child: Text('Recent Transactions List'),
-                            ),
-                          ),
-                          // Tab 2: Quick Link
-                          Container(
-                            child: Center(
-                              child: Text('Quick Link List'),
-                            ),
-                          ),
+                          Text("Expiry Date",
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.white,
+                              )),
+                          Text("02/30",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.white,
+                              )),
                         ],
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  walletButton(
+                      "Transfer",
+                      Transform.rotate(
+                        angle: -45 *
+                            (3.141592653589793 / 180), // Rotate by 45 degrees
+                        child: Icon(
+                          Icons.send,
+                          color: AppColors.whitish,
+                        ),
+                      ), () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TransactionPage(),
+                      ),
+                    );
+                  }),
+                  walletButton(
+                      "Deposit",
+                      Icon(
+                        Icons.upload,
+                        color: AppColors.whitish,
+                      ),
+                      () {}),
+                  walletButton(
+                      "Withdraw",
+                      Icon(
+                        Icons.download,
+                        color: AppColors.whitish,
+                      ),
+                      () {}),
+                  walletButton(
+                      "Invest",
+                      Icon(
+                        Icons.timeline,
+                        color: AppColors.whitish,
+                      ),
+                      () {})
+                ],
+              ),
+              const SizedBox(height: 10),
+              Container(
+                decoration: BoxDecoration(
+                    border: Border.all(width: 0.5, color: AppColors.grey),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.lock),
+                      title: const Text("Freeze card",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          )),
+                      subtitle: Text("Tap again to unfreeze",
+                          style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.grey)),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: const Text("Settings",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          )),
+                      subtitle: Text("View address, terminate card and more",
+                          style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.grey)),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.15,
+                child: DefaultTabController(
+                  length: 2,
+                  child: Column(
+                    children: [
+                      const TabBar(
+                        tabs: [
+                          Tab(text: 'Recent Transactions'),
+                          Tab(text: 'Quick Links'),
+                        ],
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          children: [
+                            // Tab 1: Recent Transactions
+                            Container(
+                              child: const Center(
+                                child: Text('Recent Transactions List'),
+                              ),
+                            ),
+                            // Tab 2: Quick Link
+                            Container(
+                              child: const Center(
+                                child: Text('Quick Link List'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
