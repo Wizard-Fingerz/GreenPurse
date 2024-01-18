@@ -1,8 +1,8 @@
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:greenpurse/utils/colors.dart';
-import 'package:greenpurse/utils/const.dart';
 
 class ChatMessages extends StatefulWidget {
   const ChatMessages({super.key});
@@ -12,14 +12,24 @@ class ChatMessages extends StatefulWidget {
 }
 
 class _ChatMessagesState extends State<ChatMessages> {
-  final _openAI = OpenAI.instance.build(
-    token: OPENAI_API_KEY,
-    baseOption: HttpSetup(
-        receiveTimeout: const Duration(
-      seconds: 5,
-    )),
-    enableLog: true,
-  );
+  OpenAI? _openAI;
+
+  @override
+  void initState() {
+    super.initState();
+    initializeOpenAI();
+  }
+
+  Future<void> initializeOpenAI() async {
+    await dotenv.load();
+    _openAI = OpenAI.instance.build(
+      token: dotenv.env['OPENAI_API_KEY'],
+      baseOption: HttpSetup(
+        receiveTimeout: const Duration(seconds: 5),
+      ),
+      enableLog: true,
+    );
+  }
 
   final ChatUser _currentUser =
       ChatUser(id: '1', firstName: "Jane", lastName: "Doe");
@@ -72,10 +82,15 @@ class _ChatMessagesState extends State<ChatMessages> {
   }
 
   Future<void> getChatResponse(ChatMessage message) async {
-    setState(() {
+    if (_openAI == null) {
+      // Handle the case when _openAI is null
+      return;
+    }
+     setState(() {
       _messages.insert(0, message);
       _typingUsers.add(_greenBotUser);
     });
+
     List<Messages> _messagesHistory = _messages.reversed.map((m) {
       if (m.user == _currentUser) {
         return Messages(role: Role.user, content: m.text);
@@ -83,24 +98,30 @@ class _ChatMessagesState extends State<ChatMessages> {
         return Messages(role: Role.assistant, content: m.text);
       }
     }).toList();
+
     final request = ChatCompleteText(
-        model: GptTurbo0301ChatModel(),
-        messages: _messagesHistory,
-        maxToken: 300);
-    final response = await _openAI.onChatCompletion(request: request);
+      model: GptTurbo0301ChatModel(),
+      messages: _messagesHistory,
+      maxToken: 300,
+    );
+
+    final response = await _openAI!.onChatCompletion(request: request);
 
     for (var element in response!.choices) {
       if (element.message != null) {
         setState(() {
           _messages.insert(
-              0,
-              ChatMessage(
-                  user: _greenBotUser,
-                  createdAt: DateTime.now(),
-                  text: element.message!.content));
+            0,
+            ChatMessage(
+              user: _greenBotUser,
+              createdAt: DateTime.now(),
+              text: element.message!.content,
+            ),
+          );
         });
       }
     }
+
     setState(() {
       _typingUsers.remove(_greenBotUser);
     });

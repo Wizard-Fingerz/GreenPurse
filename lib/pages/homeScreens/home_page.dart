@@ -64,7 +64,7 @@ class HomeContent extends StatelessWidget {
           ]),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               TextField(

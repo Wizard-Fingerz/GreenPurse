@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:greenpurse/pages/homeScreens/home_screen.dart';
 import 'package:greenpurse/pages/onboardingScreen/onboarding_screen.dart';
 import 'package:greenpurse/token_manager.dart';
@@ -8,7 +9,12 @@ import 'package:greenpurse/utils/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:greenpurse/auth_provider.dart';
 
-void main() {
+void main() async {
+   try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    print("Error loading .env file: $e");
+  }
   runApp(
     MultiProvider(
       providers: [
