@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greenpurse/pages/homeScreens/cart_page.dart';
+import 'package:greenpurse/pages/homeScreens/cartPage/presentation/cart_page.dart';
 import 'package:greenpurse/utils/colors.dart';
 
 class MarketPage extends StatelessWidget {

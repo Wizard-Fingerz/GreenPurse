@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:greenpurse/pages/homeScreens/green_bot.dart';
-import 'package:greenpurse/pages/homeScreens/home_page.dart';
-import 'package:greenpurse/pages/homeScreens/market_page.dart';
+import 'package:greenpurse/pages/homeScreens/greenBot/presentation/green_bot.dart';
+import 'package:greenpurse/pages/homeScreens/homePage/presentation/home_page.dart';
+import 'package:greenpurse/pages/homeScreens/marketPage/presentation/market_page.dart';
 import 'package:greenpurse/pages/homeScreens/profile.dart';
 import 'package:greenpurse/pages/homeScreens/wallet/wallet_home.dart';
 import 'package:greenpurse/utils/colors.dart';

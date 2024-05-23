@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:greenpurse/data/product_data.dart';
-import 'package:greenpurse/pages/homeScreens/order_summary.dart';
+import 'package:greenpurse/pages/homeScreens/orderSummary/presentation/order_summary.dart';
 import 'package:greenpurse/pages/homeScreens/product_details.dart';
 import 'package:greenpurse/pages/widgets/product.dart';
 import 'package:greenpurse/utils/colors.dart';
